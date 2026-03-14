@@ -2,7 +2,9 @@ const dotenv = require("dotenv");
 const app = require("./app");
 const databaseConnection = require("./config/databaseConnection");
 
-    dotenv.config({ path:"./config/config.env"});
+    if (process.env.NODE_ENV !== "production") {
+  dotenv.config({ path: "./config/config.env" });
+}
 
     databaseConnection();
 
